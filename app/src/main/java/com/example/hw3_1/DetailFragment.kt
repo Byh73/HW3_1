@@ -27,10 +27,10 @@ class DetailFragment : Fragment() {
 
     private fun getData() = with(binding) {
         arguments?.let { bundle: Bundle ->
-            val animal = bundle.getSerializable("animal") as Animal
-            txtAnimal.text = animal.name
-            Glide.with(ivAnimal).load(animal.image).into(ivAnimal)
-            txtOpis.text = animal.opis
+            val plant = bundle.getSerializable("plant") as Plant
+            txtPlant.text = plant.name
+            Glide.with(ivPlant).load(plant.image).into(ivPlant)
+            txtOpis.text = plant.opis
         }
 
 

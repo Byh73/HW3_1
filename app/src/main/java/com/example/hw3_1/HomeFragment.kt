@@ -11,7 +11,7 @@ import com.example.hw3_1.databinding.ItemHomeBinding
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private var animalList: ArrayList<Animal> = arrayListOf<Animal>()
+    private var plantList: ArrayList<Plant> = arrayListOf<Plant>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,8 +29,8 @@ class HomeFragment : Fragment() {
 
 
     private fun loadData() {
-        animalList.add(
-            Animal(
+        plantList.add(
+            Plant(
                 name = "",
                 image = "",
                 opis = ""
@@ -39,16 +39,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun initialize() {
-        val animalAdapter = AnimalAdapter(animalList) { position: Int ->
+        val plantAdapter = PlantAdapter(plantList) { position: Int ->
             val bundle = Bundle()
-            bundle.putSerializable("animal", animalList[position])
+            bundle.putSerializable("plant", plantList[position])
             val detailFragment = DetailFragment()
             detailFragment.arguments = bundle
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, detailFragment).addToBackStack(null).commit()
 
         }
-        binding.rvHome.adapter = animalAdapter
+        binding.rvHome.adapter = plantAdapter
     }
 
 
